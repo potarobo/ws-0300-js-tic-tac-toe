@@ -2,3 +2,65 @@
 
 html
   background: v.$background-color
+  font-family: v.$font-family
+  box-sizeing: v.$box-sizing
+  font-size: v.$font-size
+
+.l-container
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100vh
+
+.main-title
+  font-size: 18px
+  text-align: center
+
+.turn
+  display: flex
+  justify-content: center
+  padding: 8px 16px
+  margin-bottom: 16px
+
+.turn-item
+  flex: 1
+  font-size: 22px
+  text-align: center
+  padding: 16px
+
+.turn-item.active
+  border-bottom: 4px solid #000
+
+.l-board
+  padding: 16px
+  margin-bottom: 16px
+
+table
+  border-collapse: collapse
+
+.cell
+  cursor: pointer
+  font-size: 30px
+  text-align: center
+  font-weight: bold
+  width: 48px
+  height: 48px
+  border: 2px solid #000
+
+.result
+  text-align: center
+  margin-bottom: 8px
+
+.button-restart
+  cursor: pointer
+  display: inline-block
+  text-align: center
+  font-weight: bold
+  background: #fff
+  border: 2px solid #000
+  border-radius: 4px
+  width: 100%
+  padding: 4px
+  &:hover
+    color: #fff
+    background: #000

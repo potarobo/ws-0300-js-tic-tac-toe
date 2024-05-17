@@ -6,8 +6,43 @@
   <link href="stylesheets/index.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-  <div class="container">
+  <div class="l-container">
     <!-- write your html -->
+    <main class="l-main">
+      <header>
+        <h1 class="main-title">TIC TAC TOE</h1>
+      </header>
+      <div class="display">
+        <div class="turn">
+          <div class="turn-item circle active">○</div>
+          <div class="turn-item cross">×</div>
+        </div>
+      </div>
+      <div class="massage"> </div>
+      <div class="l-board">
+        <table class="">
+          <tbody>
+            <tr class="">
+              <td class="cell" data-key="1"></td>
+              <td class="cell" data-key="2"></td>
+              <td class="cell" data-key="3"></td>
+            </tr>
+            <tr class="">
+              <td class="cell" data-key="4"></td>
+              <td class="cell" data-key="5"></td>
+              <td class="cell" data-key="6"></td>
+            </tr>
+            <tr>
+              <td class="cell" data-key="7"></td>
+              <td class="cell" data-key="8"></td>
+              <td class="cell" data-key="9"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="result">starting...</div>
+      <button class="button-restart">RESTART</button>
+    </main>
   </div>
   <script type="text/javascript" src="js/function.js"></script>
 </body>
