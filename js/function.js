@@ -21,33 +21,29 @@ cells.forEach((cell) => {
     const cell = e.target;
     const index = parseInt(cell.dataset.key, 10);
 
-    if (!cell.classList.contains('checked') && !winPatterns.some((pattern) => pattern.every((i) => board[i] === '○') || pattern.every((i) => board[i] === '×'))) {
-      if (circle.classList.contains('active')) {
-        cell.textContent = '○';
-        board[index] = '○';
-      } else {
-        cell.textContent = '×';
-        board[index] = '×';
-      }
-      cell.classList.add('checked');
+    // セルが既にチェックされているか、ゲームが終わっている場合は何もしない
+    if (cell.classList.contains('checked') || result.textContent !== 'starting...') return;
 
-      let winner = null;
-      for (const pattern of winPatterns) {
-        const [a, b, c] = pattern;
-        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-          winner = board[a];
-          break;
-        }
-      }
+    // 現在のプレイヤーのマークをセルに表示し、ボードを更新
+    const currentPlayer = circle.classList.contains('active') ? '○' : '×';
+    cell.textContent = currentPlayer;
+    board[index] = currentPlayer;
+    cell.classList.add('checked');
 
-      if (winner) {
-        result.textContent = `${winner} win!!`;
-      } else if (board.every((cell) => cell !== null)) {
-        result.textContent = 'draw';
-      } else {
-        circle.classList.toggle('active');
-        cross.classList.toggle('active');
-      }
+    // 勝敗の判定
+    let winner = winPatterns.some((pattern) => {
+      return pattern.every((i) => {
+        return board[i] === currentPlayer;
+      });
+    });
+
+    if (winner) {
+      result.textContent = `${currentPlayer} win!!`;
+    } else if (board.every((cell) => cell !== null)) {
+      result.textContent = 'draw';
+    } else {
+      circle.classList.toggle('active');
+      cross.classList.toggle('active');
     }
   });
 });
